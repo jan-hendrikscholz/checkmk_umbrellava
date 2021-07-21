@@ -18,7 +18,7 @@ CheckMK 2.0 plugin for Cisco Umbrella virtual appliance specific services
   6. Activate your changes.
   
 ## Manual installation
-  1. Download the individual files, or use `git clone https://github.com/jan-hendrikscholz/checkmk_umbrellava/checkmk_umbrellava.git` to bring them to your CheckMK server
+  1. Download the individual files, or use `git clone https://github.com/jan-hendrikscholz/checkmk_umbrellava.git` to bring them to your CheckMK server
   2. Copy all files (or the checks you need) to `/opt/omd/sites/<YOURSITE>/local/lib/check_mk/base/plugins/agent_based/`
   
 # Usage
