@@ -44,7 +44,6 @@ def check_umbrellava_thisdns(item, section):
 
 def discover_umbrellava_thisdns(section):
     for UmbrellaThisDNSState, UmbrellaThisDNSTCPState,UmbrellaThisDNSUDPState in section:
-      #print(ADConnectorState)
       servicename = UmbrellaThisDNSState[UmbrellaThisDNSState.find(':')+len(':'):UmbrellaThisDNSState.rfind(':')]
       yield Service(item=servicename)
 
@@ -53,6 +52,4 @@ register.check_plugin(
     service_name = "UmbrellaVA %s",
     discovery_function = discover_umbrellava_thisdns,
     check_function = check_umbrellava_thisdns,
-    #check_default_parameters = {"warning_lower": 10},
-    #check_ruleset_name = "foobar",
 )
