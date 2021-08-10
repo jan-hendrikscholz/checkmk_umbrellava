@@ -13,7 +13,6 @@ from .agent_based_api.v1 import (
 register.snmp_section(
     name = "umbrellava_clouddns",
     detect = startswith(".1.3.6.1.2.1.1.2.0", ".1.3.6.1.4.1.8072.3.2.10"),
-    #parse_function=parse_acgateway_alarms,
     fetch=SNMPTree(
             base=".1.3.6.1.4.1.8072.1.3.2.4.1.2.3.100.110.115",
             oids=[
@@ -26,7 +25,6 @@ register.snmp_section(
 )
 def check_umbrellava_clouddns(item, section):
     for UmbrellaDNSConnectionState, UmbrellaResolver2UDPlookup,UmbrellaResolver2TCPlookup,UmbrellaResolver1UDPlookup, UmbrellaResolver1TCPlookup in section:
-      #print(ADConnectorState)
       if "green" in UmbrellaDNSConnectionState:
         state = State.OK
       elif "yellow" in UmbrellaDNSConnectionState:
@@ -47,7 +45,6 @@ def check_umbrellava_clouddns(item, section):
 
 def discover_umbrellava_clouddns(section):
     for UmbrellaDNSConnectionState, UmbrellaResolver2UDPlookup,UmbrellaResolver2TCPlookup,UmbrellaResolver1UDPlookup, UmbrellaResolver1TCPlookup in section:
-      #print(ADConnectorState)
       servicename = UmbrellaDNSConnectionState[UmbrellaDNSConnectionState.find(':')+len(':'):UmbrellaDNSConnectionState.rfind(':')]
       yield Service(item=servicename)
 
@@ -56,6 +53,4 @@ register.check_plugin(
     service_name = "UmbrellaVA %s",
     discovery_function = discover_umbrellava_clouddns,
     check_function = check_umbrellava_clouddns,
-    #check_default_parameters = {"warning_lower": 10},
-    #check_ruleset_name = "foobar",
 )

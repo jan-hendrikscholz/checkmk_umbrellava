@@ -14,7 +14,6 @@ from .agent_based_api.v1 import (
 register.snmp_section(
     name = "umbrellava_adconnector",
     detect = startswith(".1.3.6.1.2.1.1.2.0", ".1.3.6.1.4.1.8072.3.2.10"),
-    #parse_function=parse_acgateway_alarms,
     fetch=SNMPTree(
             base=".1.3.6.1.4.1.8072.1.3.2.4.1.2.2.97.100",
             oids=[
@@ -40,7 +39,6 @@ def check_umbrellava_adconnector(item, section):
 
 def discover_umbrellava_adconnector(section):
     for ADConnectorState, ADConnectorLastEventDate in section: 
-      #print(ADConnectorState)
       servicename = ADConnectorState[ADConnectorState.find(':')+len(':'):ADConnectorState.rfind(':')]
       yield Service(item=servicename)
 
@@ -49,6 +47,4 @@ register.check_plugin(
     service_name = "UmbrellaVA %s",
     discovery_function = discover_umbrellava_adconnector,
     check_function = check_umbrellava_adconnector,
-    #check_default_parameters = {"warning_lower": 10},
-    #check_ruleset_name = "foobar",
 )
