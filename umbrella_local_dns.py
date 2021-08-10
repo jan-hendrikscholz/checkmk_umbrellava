@@ -27,7 +27,6 @@ register.snmp_section(
 )
 def check_umbrellava_localdns(item, section):
     for UmbrellaLocalDNSState, UmbrellaLocalDNS1UDPState,UmbrellaLocalDNS1TCPState,UmbrellaLocalDNS2UDPState, UmbrellaLocalDNS2TCPState, UmbrellaLocalDNS3UDPState,UmbrellaLocalDNS3TCPState in section:
-      #print(ADConnectorState)
       if "green" in UmbrellaLocalDNSState:
         state = State.OK
       elif "yellow" in ADConnectorState:
