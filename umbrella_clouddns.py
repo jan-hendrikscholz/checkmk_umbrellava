@@ -25,7 +25,6 @@ register.snmp_section(
 )
 def check_umbrellava_clouddns(item, section):
     for UmbrellaDNSConnectionState, UmbrellaResolver2UDPlookup,UmbrellaResolver2TCPlookup,UmbrellaResolver1UDPlookup, UmbrellaResolver1TCPlookup in section:
-      #print(ADConnectorState)
       if "green" in UmbrellaDNSConnectionState:
         state = State.OK
       elif "yellow" in UmbrellaDNSConnectionState:
