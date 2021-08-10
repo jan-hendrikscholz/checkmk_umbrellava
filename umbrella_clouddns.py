@@ -45,7 +45,6 @@ def check_umbrellava_clouddns(item, section):
 
 def discover_umbrellava_clouddns(section):
     for UmbrellaDNSConnectionState, UmbrellaResolver2UDPlookup,UmbrellaResolver2TCPlookup,UmbrellaResolver1UDPlookup, UmbrellaResolver1TCPlookup in section:
-      #print(ADConnectorState)
       servicename = UmbrellaDNSConnectionState[UmbrellaDNSConnectionState.find(':')+len(':'):UmbrellaDNSConnectionState.rfind(':')]
       yield Service(item=servicename)
 
