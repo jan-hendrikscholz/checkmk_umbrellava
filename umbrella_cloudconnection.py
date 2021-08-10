@@ -46,6 +46,4 @@ register.check_plugin(
     service_name = "UmbrellaVA %s",
     discovery_function = discover_umbrellava_cloudconnection,
     check_function = check_umbrellava_cloudconnection,
-    #check_default_parameters = {"warning_lower": 10},
-    #check_ruleset_name = "foobar",
 )
