@@ -39,7 +39,6 @@ def check_umbrellava_adconnector(item, section):
 
 def discover_umbrellava_adconnector(section):
     for ADConnectorState, ADConnectorLastEventDate in section: 
-      #print(ADConnectorState)
       servicename = ADConnectorState[ADConnectorState.find(':')+len(':'):ADConnectorState.rfind(':')]
       yield Service(item=servicename)
 
